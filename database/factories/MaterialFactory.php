@@ -21,7 +21,7 @@ class MaterialFactory extends Factory
      */
     public function definition()
     {
-        $nombre_material =  $this->faker->name();
+        $nombre_material =  $this->faker->jobTitle();
         return [
             'nombre'=>$nombre_material,
             'slug'=>Str::slug($nombre_material,'-'),

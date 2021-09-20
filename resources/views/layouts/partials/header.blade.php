@@ -58,31 +58,3 @@
     });
   </script>
 </nav>
-<!--h1 class="text-green-500 text-2xl md:text-3xl lg:text-4xl font-bold p-4">Tailwind Navigation Toolbar</h1-->
-
-<!--nav class="bg-green-50 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-              <div class="flex space-x-7">
-    
-                  <div>
-                    <a href="" class="flex items-center py-4 px-2">
-                      <img class="h-6 w-auto mr-2" alt="logo" src="log.png" alt="">
-                      <span class="font-semibold text-gray-500 text-lg">Navegación</span>
-                    </a>
-                  </div>
-
-                  <div class="flex md:flex items-center space-x-2">
-                    <a  href="" 
-                      class="py-4 px-2 text-gray-500 hover:text-green-500 border-b-4 border-green-500 font-semibold">Home</a>
-                    <a href="" 
-                      class="py-4 px-2 text-gray-500 hover:text-green-500">Servicios</a>
-                    <a href=""
-                      class="py-4 px-2 text-gray-500 hover:text-green-500">Acerca de</a>
-                    <a href=""
-                      class="py-4 px-2 text-gray-500 hover:text-green-500 transition duration-150 ease-in-out">Contáctanos</a> 
-                  </div>
-              </div> 
-            </div>
-        </div>
-</nav-->
