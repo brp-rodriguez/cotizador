@@ -20,4 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/materiales', [MaterialController::class ,'index']);
+
+
+Route::get('/materiales', [MaterialController::class ,'index'])->name('materiales.index');
+
+Route::get('/materiales/create',[MaterialController::class,'create'])->name('materiales.create');
+
+Route::post('/materiales',[MaterialController::class,'store'])->name('materiales.store');
+
+Route::get('/materiales/{material}',[MaterialController::class,'show'])->name('materiales.show');
+
+

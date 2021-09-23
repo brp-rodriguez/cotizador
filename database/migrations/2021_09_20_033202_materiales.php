@@ -30,6 +30,18 @@ class Materiales extends Migration
             
             $table->string('lugar_compra');
             $table->timestamps();
+
+            /* 
+            nombre
+            slug
+            unidad
+            nombre_unidad
+            descripcion
+            foto    
+            precio_compra
+            precio_venta
+            lugar_compra
+            */
         });
     }
 

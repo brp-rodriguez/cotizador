@@ -100,7 +100,7 @@
                         responsive: true
                     } )
                     .columns.adjust()
-                    .responsive.recalc();
+                    .responsive.recalc();                    
             } );
         </script>          
   
