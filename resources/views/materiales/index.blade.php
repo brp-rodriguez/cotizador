@@ -4,52 +4,117 @@
 <section class="flex">		
 					      
 			<!--Container-->
-			<div class="container-fluid w-full md:w-full xl:w-full  mx-auto px-10 border-red-600 border">
+			<div class="container-fluid w-full md:w-full xl:w-full  mx-auto px-10">
 					 
 				  <!--Title-->
-				  <h1 class="flex items-center font-sans font-semibold break-normal text-green-500 px-10 pt-6	 text-xl md:text-2xl">
+				  <h1 class="flex items-center font-sans font-semibold break-normal text-green-500 px-4 pt-6	my-4	 text-xl md:text-2xl">
 					  Materiales
 				  </h1>
-				  
-				  
-				  <!--Card-->
-				   <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">				   
-					  
-					  <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em; color: black;">
-						  <thead>
-							  <tr>
-								  <th data-priority="1">Name</th>
-								  <th data-priority="2">Position</th>
-								  <th data-priority="3">Office</th>
-								  <th data-priority="4">Age</th>
-								  <th data-priority="5">Start date</th>
-								  <th data-priority="6">Salary</th>
-							  </tr>
-						  </thead>
-						  <tbody>
-							
-							@foreach ($materiales as $material)
-								<tr>
-									<td>{{$material->nombre}}</td>
-									<td>{{$material->descripcion}}</td>
-									<td>{{$material->unidad}}</td>
-									<td>{{$material->lugar_compra}}</td>
-									<td>{{$material->precio_compra}}</td>
-									<td>{{$material->precio_venta}}</td>
-								</tr>
-							@endforeach	
-							 
-							  
-							  <!-- Rest of your data (refer to https://datatables.net/examples/server_side/ for server side processing)-->
-							  
-							  
-						  </tbody>
-						  
-					  </table>
-					  
-					  
+
+				  <div class="relative flex mb-3">
+					<span
+						class="z-10 h-full leading-snug font-normal text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+						<i class="fas fa-search"></i>
+					</span>
+					<div class="w-1/3">
+						<input type="text" placeholder="Buscar"
+							class="h-10 w-full pl-2 py-2 ml-4 placeholder-gray-400 text-gray-600 relative bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring" />
+					</div>
+					<div>
+						<button class="h-10 w-20 ml-4 text-white rounded-lg bg-red-500 hover:bg-red-600">Buscar</button>
+					</div>
+					<div class="w-5/12">
+					</div>
+					<div class="ml-20">
+						<a href="{{route('materiales.create')}}">								
+							<button class="h-10 w-auto px-2 text-white rounded-lg bg-blue-700 hover:bg-blue-900"> Agregar Material</button>						
+						</a>
+					</div>
 				  </div>
-				  <!--/Card-->
+
+				  <div class="ml-4"> {{$materiales->links()}} </div>	  			  
+
+
+				  <br>			
+  				  <div class="flex flex-col">
+						<div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+						  <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+							<div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+							  <table class="min-w-full divide-y divide-gray-200">
+								<thead class="bg-gray-200">
+								  <tr>
+									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+									  Material
+									</th>
+									
+									
+									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+									  Descripción
+									</th>
+									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+										Precio Compra / Precio de Venta
+									</th>
+								    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+										Unidad de Medida 
+									</th>
+									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+									    Lugar de Compra
+									</th>
+									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+									    Opciones
+									</th>
+								  </tr>
+								</thead>
+								<tbody class="bg-white divide-y divide-gray-200">
+								@foreach ( $materiales as $material )								
+								<tr class="{{$loop->even ? 'bg-gray-200' : 'bg-white'}}">
+									<td class="px-6 py-4 whitespace-nowrap">
+									<div class="flex items-center">
+										<div class="flex-shrink-0 h-10 w-10">											
+										  	<img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+											</div>
+
+											<div class="ml-4">
+												<div class="text-sm font-medium text-gray-900">
+													{{$material->nombre}}
+												</div>
+										  		
+											</div>
+									    </div>
+									</td>
+							
+								
+							
+									
+									<td class="px-6 py-4 whitespace-normal text-sm text-gray-500">
+										{{$material->descripcion}}
+									</td>
+									<td class="px-6 py-4 whitespace-nowrap">
+										<div class="text-sm text-gray-900">{{$material->precio_compra}}</div>
+										<div class="text-sm text-gray-500">{{$material->precio_venta}}</div>
+									</td>
+									<td class="px-6 py-4 whitespace-nowrap">
+										<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+										  {{$material->unidad}} {{$material->nombre_unidad}}
+										</span>
+									  </td>
+									<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+										{{$material->lugar_compra}}
+									</td>
+									<td class="px-6 py-4 whitespace-pre-line text-sm font-medium">
+									  <a href="#" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+									  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+									  <a href="#" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+									</td>
+								  </tr>																	
+								@endforeach
+								  <!-- More people... -->
+								</tbody>
+							  </table>
+							</div>
+						  </div>
+						</div>
+					  </div>  
 	  	  
 			</div>
 			<!--/container-->	  		  

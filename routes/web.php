@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CotizacionesController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\VentasController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +33,8 @@ Route::post('/materiales',[MaterialController::class,'store'])->name('materiales
 
 Route::get('/materiales/{material}',[MaterialController::class,'show'])->name('materiales.show');
 
+Route::get('/productos', [ProductoController::class ,'index'])->name('productos.index');
 
+Route::get('/cotizaciones', [CotizacionesController::class ,'index'])->name('cotizaciones.index');
+
+Route::get('/ventas', [VentasController::class ,'index'])->name('ventas.index');
