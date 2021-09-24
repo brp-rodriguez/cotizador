@@ -35,6 +35,25 @@ class MaterialController extends Controller
    }
 
    public function show(Material $material){       
-       return $material;
+       return view('materiales.show',compact('material'));
+   }
+
+   public function edit(Material $material){
+    return view('materiales.edit',compact('material'));
+   }
+
+   public function update(Material $material, Request $request){
+        
+    $material->nombre = $request->name; 
+    $material->slug =  Str::slug($request->name);
+    $material->unidad = $request->unidad;    
+    $material->nombre_unidad = $request->nombre_unidad;    
+    $material->descripcion = $request->descripcion;
+    $material->foto = $request->foto;
+    $material->precio_compra = $request->precio_compra;
+    $material->precio_venta = $request->precio_venta;     
+    $material->lugar_compra = $request->lugar_compra;   
+    $material->save();
+    return view('materiales.show',compact('material'));
    }
 }

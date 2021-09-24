@@ -33,6 +33,15 @@ Route::post('/materiales',[MaterialController::class,'store'])->name('materiales
 
 Route::get('/materiales/{material}',[MaterialController::class,'show'])->name('materiales.show');
 
+Route::get('/materiales/{material}',[MaterialController::class,'show'])->name('materiales.show');
+
+Route::get('/materiales/{material}/edit',[MaterialController::class,'edit'])->name('materiales.edit');
+
+Route::get('/materiales/{material}/edit',[MaterialController::class,'edit'])->name('materiales.edit');
+
+Route::put('/materiales/{material}',[MaterialController::class,'update'])->name('materiales.update');
+
+
 Route::get('/productos', [ProductoController::class ,'index'])->name('productos.index');
 
 Route::get('/cotizaciones', [CotizacionesController::class ,'index'])->name('cotizaciones.index');
