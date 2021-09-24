@@ -56,4 +56,24 @@ class MaterialController extends Controller
     $material->save();
     return view('materiales.show',compact('material'));
    }
+
+   public function destroy(Material $material){
+    $material->delete();
+    return redirect()->route('materiales.index');
+   }
+
+   public function search(Request $request){
+      $search = $request->filter;
+      $materiales = Material::query()
+      ->where('nombre','LIKE',"%{$search}%")
+      ->orWhere('slug','LIKE',"%{$search}%")
+      ->orWhere('unidad','LIKE',"%{$search}%")
+      ->orWhere('nombre_unidad','LIKE',"%{$search}%")
+      ->orWhere('descripcion','LIKE',"%{$search}%")
+      ->orWhere('foto','LIKE',"%{$search}%")
+      ->orWhere('lugar_compra','LIKE',"%{$search}%")
+      ->paginate();
+
+      return view('materiales.search', compact('materiales'));      
+   }
 }

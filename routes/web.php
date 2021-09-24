@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('/material/searched', [MaterialController::class ,'search'])->name('materiales.search');
 
 Route::get('/materiales', [MaterialController::class ,'index'])->name('materiales.index');
 
@@ -37,9 +38,12 @@ Route::get('/materiales/{material}',[MaterialController::class,'show'])->name('m
 
 Route::get('/materiales/{material}/edit',[MaterialController::class,'edit'])->name('materiales.edit');
 
-Route::get('/materiales/{material}/edit',[MaterialController::class,'edit'])->name('materiales.edit');
-
 Route::put('/materiales/{material}',[MaterialController::class,'update'])->name('materiales.update');
+
+Route::delete('/materiales/{material}',[MaterialController::class,'destroy'])->name('materiales.destroy');
+
+
+
 
 
 Route::get('/productos', [ProductoController::class ,'index'])->name('productos.index');
