@@ -32,7 +32,7 @@
 						</a>
 					</div>
 				  </div>
-
+				  
 				  <div class="ml-4"> {{$materiales->links()}} </div>	  			  
 
 
@@ -44,6 +44,7 @@
 							  <table class="min-w-full divide-y divide-gray-200">
 								<thead class="bg-gray-300">
 								  <tr>
+									
 									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
 									  Material
 									</th>
@@ -66,8 +67,11 @@
 								  </tr>
 								</thead>
 								<tbody class="bg-white divide-y divide-gray-200">
-								@foreach ( $materiales as $material )								
+								@foreach ( $materiales as $material )
+																
 								<tr class="{{$loop->even ? 'bg-gray-200' : 'bg-white'}}">
+									
+
 									<td class="px-6 py-4 whitespace-nowrap">
 									<div class="flex items-center">
 										<div class="flex-shrink-0 h-10 w-10">											
