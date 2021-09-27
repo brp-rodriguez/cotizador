@@ -26,9 +26,9 @@
 
 					<div class="w-1/12">
 					</div>
-					<div class="ml-44">
+					<div class="ml-40">
 						<a href="{{route('materiales.create')}}">								
-							<button class="h-10 w-auto px-2 text-white rounded-lg bg-blue-700 hover:bg-blue-900"> Agregar Material</button>						
+							<button class="h-10 w-40 px-2 text-white rounded-lg bg-blue-700 hover:bg-blue-900"> Agregar Material</button>						
 						</a>
 					</div>
 				  </div>

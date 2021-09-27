@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\MaterialStoreRequest;
 use App\Models\Material;
+
 class MaterialController extends Controller
 {
    public function index(){
-       $materiales = Material::paginate();
+       $materiales = Material::orderBy('id','desc')->paginate();
        return view('materiales.index', compact('materiales'));       
    }
 
@@ -16,7 +18,8 @@ class MaterialController extends Controller
         return view('materiales.create');
    }
 
-   public function store(Request $request){
+   public function store(MaterialStoreRequest $request){
+
         $material = new Material();
         
         $material->nombre = $request->name; 

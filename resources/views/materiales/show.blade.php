@@ -59,7 +59,7 @@
                                 Precio de Compra
                                 <input type="text" name="precio_compra"
                                 class="w-full px-4 py-2 mt-2 border-gray-400 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                value="{{$material->precio_compra}}" disabled>
+                                value="{{number_format($material->precio_compra,2,'.',' ')}}" disabled>
                             </label>
                         </div>
 
@@ -68,7 +68,7 @@
                                 Precio de Venta
                                 <input type="text" name="precio_venta"
                                 class="w-full px-4 py-2 mt-2 border border-gray-400 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                value="{{$material->precio_venta}}" disabled>
+                                value="{{number_format($material->precio_venta,2,'.',' ')}}" disabled>
                             </label>
                         </div>
 
