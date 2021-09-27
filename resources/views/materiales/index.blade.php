@@ -4,8 +4,14 @@
 <section class="flex">		
 					      
 			<!--Container-->
-			<div class="container-fluid w-full md:w-full xl:w-full  mx-auto px-10">
-					 
+			<div class="container-fluid w-full md:w-full xl:w-full  mx-auto px-10" style="background-image: url('{{ asset('imagenes/materiales2.jpg') }}');  background-size: cover;">
+				
+				
+				  <!--div>					
+					<a href="#" class="flex items-center">
+					  <img src="{{ asset('imagenes/materiales-background-rectangulo.png') }}" alt="materiales" class="h-auto w-full mr-2">
+					</a>
+				  </div-->
 				  <!--Title-->
 				  <h1 class="flex items-center font-sans font-semibold break-normal text-green-500 px-4 pt-6	my-4	 text-xl md:text-2xl">
 					  Materiales
