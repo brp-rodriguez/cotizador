@@ -29,6 +29,7 @@ class ProductoFactory extends Factory
         return [            
             'nombre' => $nombre_generado,
             'slug' => Str::slug($nombre_generado),
+            'tipo'=>$this->faker->randomElement(['servicio','producto']),
             'descripcion' => $this->faker->text(),
             'precio_venta_sin_igv' => $precio_sin_igv,
             'precio_venta_con_igv'=>$precio_con_igv,

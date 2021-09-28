@@ -18,6 +18,7 @@ class Productos extends Migration
             $table->string('nombre');    
             $table->string('slug');
             $table->text('descripcion');
+            $table->text('tipo');
             $table->decimal('precio_venta_sin_igv',10,2);
             $table->decimal('precio_venta_con_igv',10,2);
             $table->timestamps();

@@ -4,7 +4,7 @@
 <section class="flex">		
 					      
 			<!--Container-->
-			<div class="container-fluid w-full md:w-full xl:w-full  mx-auto px-10" style="background-image: url('{{ asset('imagenes/materiales2.jpg') }}');  background-size: cover;">
+			<div class="container-fluid w-full md:w-full xl:w-full  mx-auto px-10">
 				
 				
 				  <!--div>					

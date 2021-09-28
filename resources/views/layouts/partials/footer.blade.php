@@ -9,5 +9,7 @@
         </div>
     </div>
 </footer>
+<script src="{{asset('js/ownscript.js')}}"></script>
+
 
 
