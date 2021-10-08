@@ -16,7 +16,7 @@
           <a href="{{route('productos.index')}}"    class="{{request()->routeIs('productos.*') ? 'border-green-500':'border-green-100' }}  py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">Productos</a>
           <a href="{{route('cotizaciones.index')}}" class="{{request()->routeIs('cotizaciones.*') ? 'border-green-500':'border-green-100' }} py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">Cotizaciones</a>
           <a href="{{route('ventas.index')}}"       class="{{request()->routeIs('ventas.*') ? 'border-green-500':'border-green-100' }} py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">Ventas</a>
-        </div>        
+        </div>
       </div>
       <!-- Secondary Navbar items -->
       <div class="hidden md:flex items-center space-x-3 ">
@@ -49,7 +49,7 @@
       <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</a></li>
       <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contact Us</a></li>
 
-      
+
 
     </ul>
   </div>
@@ -58,7 +58,7 @@
     const menu = document.querySelector(".mobile-menu");
 
     btn.addEventListener("click", () => {
-      menu.classList.toggle('hidden');      
+      menu.classList.toggle('hidden');
     });
   </script>
 </nav>

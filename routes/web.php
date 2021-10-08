@@ -6,6 +6,8 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SendInvoceController;
+use App\Http\Controllers\DownloadInvoceController;
+use App\Http\Controllers\ShowInvoceController;
 
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Routing\Router;
@@ -54,7 +56,14 @@ Route::get('/cotizaciones/create', [CotizacionesController::class ,'create'])->n
 Route::get('/ventas', [VentasController::class ,'index'])->name('ventas.index');
 
 // PDF 
-Route::get('/mostrar_reporte', [SendInvoceController::class ,'index'])->name('ventas.index');
-Route::get('/reporte/download', [DownloadInvoceController::class ,'index'])->name('ventas.index');
-Route::get('/reporte/send', [ShowInvoceController::class ,'index'])->name('ventas.index');
+Route::get('/invoce/show', [SendInvoceController::class])->name('invoce.show');
+Route::get('/invoce/download', [DownloadInvoceController::class])->name('invoce.download');
+Route::get('/invoce/send', [ShowInvoceController::class])->name('invoce.send');
+
+// PDF 2
+
+Route::get('/pdf1', [ReporteController::class,'download_create_html']);
+Route::get('/pdf2', [ReporteController::class,'download_from_template_blade']);
+Route::get('/pdf3', [ReporteController::class,'download_stream']);
+
 
