@@ -24,7 +24,7 @@ class CotizacionesController extends Controller
      */
     public function create()
     {
-        //
+        return view('cotizaciones.create');
     }
 
     /**

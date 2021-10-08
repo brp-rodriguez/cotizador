@@ -4,6 +4,9 @@ use App\Http\Controllers\CotizacionesController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentasController;
+use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\SendInvoceController;
+
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -46,5 +49,12 @@ Route::delete('/productos/{producto}', [ProductoController::class ,'destroy'])->
 
 
 Route::get('/cotizaciones', [CotizacionesController::class ,'index'])->name('cotizaciones.index');
+Route::get('/cotizaciones/create', [CotizacionesController::class ,'create'])->name('cotizaciones.create');
 
 Route::get('/ventas', [VentasController::class ,'index'])->name('ventas.index');
+
+// PDF 
+Route::get('/mostrar_reporte', [SendInvoceController::class ,'index'])->name('ventas.index');
+Route::get('/reporte/download', [DownloadInvoceController::class ,'index'])->name('ventas.index');
+Route::get('/reporte/send', [ShowInvoceController::class ,'index'])->name('ventas.index');
+
