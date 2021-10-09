@@ -63,6 +63,10 @@ class ReporteController extends Controller
             'observacion' => 'Se confirmará la fecha de inicio del trabajo a través de correo electronico o whatsapp',
             'despido' => 'Sin otro particular y a la espera de sus noticias, nos despedimos',
             'fecha' => \Carbon\Carbon::now()->format('d-m-Y'),
+
+            'hay_descuento' => true,
+            'porc_subtotal' => 5/100,
+            'monto_fijo' => 30,
         ];
 
         $datosb = [
@@ -80,7 +84,7 @@ class ReporteController extends Controller
         ];
 
         $customPaper = array(0,0, 841.88976378,595.275590551); // Medidas de A4
-        $customPaper = array(0,0, 900.88976378,595.275590551); // Medidas de A4 + Extensión de Largo
+        $customPaper = array(0,0, 1000.88976378,595.275590551); // Medidas de A4 + Extensión de Largo
         return PDF::loadView('exportarPDF.cotizacion.example2.index', compact('empresa','cliente','cotizacion','datosb'))
         ->setPaper($customPaper, 'landscape')->stream('archivo.pdf');
     }

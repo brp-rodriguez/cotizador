@@ -32,7 +32,7 @@
           <div class="to"> <b>Empresa</b></div>
           <div class="address">Razón Social: {{$cliente['empresa']}}</div>
           <div class="address">RUC: {{$cliente['ruc']}}</div>
-          <div class="email"><a href="mailto:{{$cliente['correo']}}">Correo: {{$cliente['correo']}}</a></div>
+          <div class="email"><a href="{{$cliente['correo']}}">Correo: {{$cliente['correo']}}</a></div>
         </div>
         <div id="invoice">
           <h1>COTIZACIÓN {{$cotizacion['numeracion']}} </h1>
@@ -101,6 +101,15 @@
             <td colspan="2">SUBTOTAL</td>
             <td>$5,200.00</td>
           </tr>
+
+          @if($cotizacion['hay_descuento'])
+          <tr>
+            <td colspan="2">
+            </td>
+            <td colspan="2">DESCUENTO:</td>
+            <td>$5,200.00</td>
+          </tr>
+          @endif
           <tr>
             <td colspan="2"></td>
             <td colspan="2">IGV 25%</td>
