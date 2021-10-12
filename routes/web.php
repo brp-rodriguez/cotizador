@@ -24,11 +24,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {    
+Route::get('/', function () {
     return view('welcome');
 });
 
-// MATERIALES 
+// MATERIALES
 Route::get('/material/searched', [MaterialController::class ,'search'])->name('materiales.search');
 Route::get('/materiales', [MaterialController::class ,'index'])->name('materiales.index');
 Route::get('/materiales/create',[MaterialController::class,'create'])->name('materiales.create');
@@ -55,15 +55,16 @@ Route::get('/cotizaciones/create', [CotizacionesController::class ,'create'])->n
 
 Route::get('/ventas', [VentasController::class ,'index'])->name('ventas.index');
 
-// PDF 
-Route::get('/invoce/show', [SendInvoceController::class])->name('invoce.show');
+// PDF
+/*Route::get('/invoce/show', [SendInvoceController::class])->name('invoce.show');
 Route::get('/invoce/download', [DownloadInvoceController::class])->name('invoce.download');
 Route::get('/invoce/send', [ShowInvoceController::class])->name('invoce.send');
-
+*/
 // PDF 2
+
 
 Route::get('/pdf1', [ReporteController::class,'download_create_html']);
 Route::get('/pdf2', [ReporteController::class,'download_from_template_blade']);
 Route::get('/pdf3', [ReporteController::class,'download_stream']);
 
-
+Route::view('/dinamico', 'cotizaciones.dinamico');

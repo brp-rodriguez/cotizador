@@ -11,13 +11,13 @@
                         <div>
                             <label class="block" for="name">
                                 Nombre
-                                <input type="text" name="name"            
+                                <input type="text" name="name"
                                 class="w-full px-4 py-2 mt-2 border-gray-400 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 value="{{old('name')}}">
-                            </label>                            
+                            </label>
                             @error('name')
                                 <br> <small>*{{$message}}</small><br>
-                            @enderror        
+                            @enderror
                         </div>
 
                         <div class="mt-4">
@@ -45,7 +45,7 @@
                             @enderror
 
                         </div>
-                        
+
 
                         <div class="mt-4">
                             <label for="precio_venta_sin_igv">
@@ -64,19 +64,19 @@
                                 Precio de Venta (Con IGV)
                                 <input type="text" name="precio_venta_con_igv" id="precio_venta_con_igv"
                                 class="w-full px-4 py-2 mt-2 border border-gray-400 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                value="{{old('precio_venta_con_igv')}}" disabled> 
+                                value="{{old('precio_venta_con_igv')}}" disabled>
                             </label>
                             @error('precio_venta_con_igv')
                                 <br> <small>*{{$message}}</small><br>
                             @enderror
-                        </div>                        
+                        </div>
 
                         <div class="mt-4 flex items-center justify-center space-x-20">
                             <button type="submit"
                                     class="w-1/3 px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
-                            >Guardar</button>   
+                            >Guardar</button>
                             <a href="{{route('productos.index')}}" class="flex w-1/3 px-6 py-2 mt-4 text-white  bg-red-600 rounded-lg hover:bg-red-900" href="https://www.google.com">
-                                <button type="button"                                    
+                                <button type="button"
                                     class="text-center mx-auto">
                                     Cancelar
                                 </button>

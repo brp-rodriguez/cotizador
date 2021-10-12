@@ -32,7 +32,6 @@
           <div class="to"> <b>Empresa</b></div>
           <div class="address">Razón Social: {{$cliente['empresa']}}</div>
           <div class="address">RUC: {{$cliente['ruc']}}</div>
-          <div class="email"><a href="{{$cliente['correo']}}">Correo: {{$cliente['correo']}}</a></div>
         </div>
         <div id="invoice">
           <h1>COTIZACIÓN {{$cotizacion['numeracion']}} </h1>
