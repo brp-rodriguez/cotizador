@@ -14,7 +14,8 @@ class CotizacionesController extends Controller
      */
     public function index()
     {
-        return view('cotizaciones.index');
+        $cotizaciones = Cotizacion::all();
+        return view('cotizaciones.index',compact('cotizaciones'));
     }
 
     /**
@@ -35,7 +36,7 @@ class CotizacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

@@ -5,7 +5,7 @@
     <div class="flex items-center justify-center min-h-screen bg-gray-100 ">
         <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-8/12 lg:w-8/12 sm:w-8/12 ">
             <h1 class="text-2xl font-sans font-semibold text-green-500 text-center">Registrar Cotización </h1>
-                <form action="#" method="POST">
+                <form action="{{ route('cotizaciones.store') }}" method="POST">
                     @csrf
                     <div class="mt-4">
                         <div class="flex flex-wrap -mx-3 mb-0">
@@ -34,7 +34,7 @@
                                   </label>
                                   <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                  type="text" name="ruc" value="{{old('ruc')}}">
+                                  id="ruc" type="text" name="ruc" value="{{old('ruc')}}">
 
                                   @error('ruc')
                                     <br> <small>*{{$message}}</small><br>
@@ -70,7 +70,7 @@
                                   </label>
                                   <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                  type="text" name="ruc" value="{{old('ruc')}}">
+                                  id="celular" type="text" name="ruc" value="{{old('ruc')}}">
 
                                   @error('ruc')
                                     <br> <small>*{{$message}}</small><br>
@@ -78,27 +78,38 @@
 
                             </div>
                         </div>
-
+                        <div>
+                            <a onclick="mostrar_Cantidad()"> numero fila</a>
+                        </div>
                         <div class="flex flex-wrap -mx-3 mb-0">
 
-                            <div class="w-full md:w-4/10 px-3 mb-0 md:mb-0">
+                            <div class="w-full md:w-3/10 px-3 mb-0 md:mb-0">
                                 <!--p class="text-red-500 text-xs italic">Please fill out this field.</p-->
                             </div>
 
-                            <div class="w-full md:w-4/10 px-3 mb-0 md:mb-0">
+                            <div class="w-full md:w-3/10 px-3 mb-0 md:mb-0">
                                 <!--p class="text-red-500 text-xs italic">Please fill out this field.</p-->
                             </div>
 
-                            <div class="w-full md:w-2/10 -ml-3 px-2 mb-0 md:mb-0 ¿">
-                                <a onclick="crear_fila()" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4
+                            <div class="w-full md:w-2/10 ml-3 px-4 mb-0 md:mb-0 ">
+                                <a onclick="crear_fila()" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2
                                                 rounded inline-flex items-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                   </svg>
-                                    <span class="px-2"> Nueva Fila</span>
+                                    <span class="px-2"> Añadir Fila</span>
                                 </a>
                             </div>
 
+                            <div class="w-full md:w-2/10 -ml-3 px-4 mb-0 md:mb-0">
+                                <a onclick="quitar_fila()" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2
+                                                rounded inline-flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                  </svg>
+                                    <span class="px-2"> Quitar Fila</span>
+                                </a>
+                            </div>
                         </div>
 
 
@@ -113,9 +124,9 @@
 
                                     <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                                     focus:ring-1 focus:ring-blue-600"
-                                            type="text" name="descripcion" value="{{old('descripcion')}}">
+                                            type="text" name="descripcion_0" value="{{old('descripcion_0')}}">
 
-                                    @error('descripcion')
+                                    @error('descripcion_0')
                                             <br> <small>*{{$message}}</small><br>
                                     @enderror
                                     <!--p class="text-red-500 text-xs italic">Please fill out this field.</p-->
@@ -130,7 +141,7 @@
                                   </label>
                                   <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                  type="text" name="ruc" value="{{old('ruc')}}">
+                                  id="precio_0" type="text" name="precio_0" value="{{old('precio_0')}}">
 
                                   @error('ruc')
                                     <br> <small>*{{$message}}</small><br>
@@ -147,9 +158,9 @@
                                 </label>
                                 <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                        type="text" name="ruc" value="{{old('ruc')}}">
+                                        id="cantidad_0" type="text" name="cantidad_0" value="{{old('cantidad_0')}}">
 
-                                @error('ruc')
+                                @error('cantidad_0')
                                   <br> <small>*{{$message}}</small><br>
                                 @enderror
                             </div>
@@ -162,10 +173,10 @@
                                       Total
                                 </label>
                                 <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
-                                            focus:ring-1 focus:ring-blue-600"
-                                type="text" name="ruc" value="{{old('ruc')}}">
+                                            focus:ring-1 focus:ring-blue-600" disabled
+                                id="total_0" type="text" name="total_0" value="{{old('total_0')}}">
 
-                                @error('ruc')
+                                @error('total_0')
                                   <br> <small>*{{$message}}</small><br>
                                 @enderror
                             </div>
@@ -208,7 +219,7 @@
                             </label>
                             <input class="appearance-none block md:w-1/6 bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                         focus:ring-1 focus:ring-blue-600"
-                            type="text" name="subtotal" value="{{old('subtotal')}}">
+                            type="text" name="porcentaje" value="{{old('porcentaje')}}">
 
                             <label class="uppercase tracking-wide
                                   text-gray-700 text-xs font-bold mb-2 mt-3 md:w-1/6
@@ -219,9 +230,9 @@
 
                             <input class="appearance-none block md:w-1/3 bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                         focus:ring-1 focus:ring-blue-600"
-                            type="text" name="subtotal" value="{{old('subtotal')}}">
+                            type="text" name="descuento" value="{{old('descuento')}}">
 
-                            @error('subtotal')
+                            @error('descuento')
                               <br> <small>*{{$message}}</small><br>
                             @enderror
                         </div>
@@ -263,9 +274,9 @@
                             </label>
                             <input class="appearance-none block md:w-2/3 bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                         focus:ring-1 focus:ring-blue-600"
-                            type="text" name="subtotal" value="{{old('subtotal')}}">
+                            type="text" name="total" value="{{old('total')}}">
 
-                            @error('subtotal')
+                            @error('total')
                               <br> <small>*{{$message}}</small><br>
                             @enderror
                         </div>
@@ -282,9 +293,9 @@
 
                           <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                         focus:ring-1 focus:ring-blue-600"
-                                type="text" name="contacto" value="{{old('contacto')}}">
+                                type="text" name="formaPago" value="{{old('formaPago')}}">
 
-                          @error('contacto')
+                          @error('formaPago')
                                 <br> <small>*{{$message}}</small><br>
                           @enderror
                           <!--p class="text-red-500 text-xs italic">Please fill out this field.</p-->
@@ -294,13 +305,13 @@
                               <label class="block uppercase tracking-wide
                                     text-gray-700 text-xs font-bold mb-2 mt-3"
                                       for="grid-first-name">
-                                    Valor de la Oferta
+                                  Validez de la Oferta
                               </label>
                               <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                         focus:ring-1 focus:ring-blue-600"
-                              type="text" name="ruc" value="{{old('ruc')}}">
+                              type="text" name="velidezOferta" value="{{old('velidezOferta')}}">
 
-                              @error('ruc')
+                              @error('velidezOferta')
                                 <br> <small>*{{$message}}</small><br>
                               @enderror
 
@@ -317,9 +328,9 @@
 
                           <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                         focus:ring-1 focus:ring-blue-600"
-                                type="text" name="contacto" value="{{old('contacto')}}">
+                                type="text" name="observacion" value="{{old('observacion')}}">
 
-                          @error('contacto')
+                          @error('observacion')
                                 <br> <small>*{{$message}}</small><br>
                           @enderror
                           <!--p class="text-red-500 text-xs italic">Please fill out this field.</p-->
@@ -345,6 +356,14 @@
                             <button type="submit"
                                     class="w-1/3 px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
                             >Guardar</button>
+
+                            <a href="{{route('cotizaciones.index')}}" class="flex w-1/3 px-6 py-2 mt-4 text-white  bg-green-900 rounded-lg hover:bg-red-900" href="https://www.google.com">
+                                <button type="button"
+                                    class="text-center mx-auto">
+                                    Guardar y generar PDF
+                                </button>
+                            </a>
+
                             <a href="{{route('cotizaciones.index')}}" class="flex w-1/3 px-6 py-2 mt-4 text-white  bg-red-600 rounded-lg hover:bg-red-900" href="https://www.google.com">
                                 <button type="button"
                                     class="text-center mx-auto">
@@ -358,5 +377,8 @@
     </div>
 
 <script src="{{ asset('js/AddRowsCotiCreate.js') }}"></script>
+<script src="{{ asset('js/CalcularMontos.js') }}"></script>
+<script src="{{ asset('js/ValidarMontos.js') }}"></script>
+
 @include('productos.modal.create')
 @endsection

@@ -1,0 +1,7 @@
+function soloPrecios(){
+
+}
+
+function soloCantidades(){
+
+}

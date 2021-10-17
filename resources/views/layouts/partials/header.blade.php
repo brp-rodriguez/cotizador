@@ -13,9 +13,14 @@
         <div class="hidden md:flex items-center space-x-1">
           <a href="{{route('materiales.index')}}"   class="{{request()->routeIs('materiales.*') ? 'border-green-500':'border-green-100' }}  py-4 px-2 text-green-500 font-semibold hover:text-green-500 border-b-4">
            Materiales</a>
-          <a href="{{route('productos.index')}}"    class="{{request()->routeIs('productos.*') ? 'border-green-500':'border-green-100' }}  py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">Productos</a>
-          <a href="{{route('cotizaciones.index')}}" class="{{request()->routeIs('cotizaciones.*') ? 'border-green-500':'border-green-100' }} py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">Cotizaciones</a>
-          <a href="{{route('ventas.index')}}"       class="{{request()->routeIs('ventas.*') ? 'border-green-500':'border-green-100' }} py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">Ventas</a>
+          <a href="{{route('productos.index')}}"    class="{{request()->routeIs('productos.*') ? 'border-green-500':'border-green-100' }}  py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">
+            Productos</a>
+          <a href="{{route('cotizaciones.index')}}" class="{{request()->routeIs('cotizaciones.*') ? 'border-green-500':'border-green-100' }} py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">
+            Cotizaciones</a>
+          <a href="{{route('clientes.index')}}" class="{{request()->routeIs('clientes.*') ? 'border-green-500':'border-green-100' }} py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">
+                Clientes</a>
+          <a href="{{route('ventas.index')}}"       class="{{request()->routeIs('ventas.*') ? 'border-green-500':'border-green-100' }} py-4 px-2 text-gray-500 font-semibold hover:text-green-500 border-b-4">
+            Ventas</a>
         </div>
       </div>
       <!-- Secondary Navbar items -->

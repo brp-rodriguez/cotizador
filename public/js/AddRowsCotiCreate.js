@@ -5,6 +5,7 @@ var div_principal = document.getElementById("fila_detalle");
 
 function crear_fila(){
     // Creación de nueva linea
+        numFila++;
 
         array_inputs[0] = document.createElement('div');
         array_inputs[0].setAttribute("class","w-full md:w-6/9 px-1 mb-0 md:mb-0");
@@ -41,6 +42,7 @@ function crear_fila(){
             input_4.setAttribute("type","text");
             input_4.setAttribute("name","total_" + numFila.toString());
             input_4.setAttribute("id","total_" + numFila.toString());
+            input_4.disabled=true;
 
             array_inputs[3].appendChild(input_4);
 /*
@@ -55,5 +57,27 @@ function crear_fila(){
         div_principal.appendChild(array_inputs[2]);
         div_principal.appendChild(array_inputs[3]);
 
-        numFila++;
+        agregarEventoBlur();
+        agregarValidaciones();
+}
+
+
+function quitar_fila(){
+
+    if(numFila>0){
+        var input_descripcion = document.getElementById("descripcion_" + numFila.toString()); // notice the change
+        input_descripcion.parentNode.removeChild(input_descripcion);
+
+        var input_precio = document.getElementById("precio_" + numFila.toString()); // notice the change
+        input_precio.parentNode.removeChild(input_precio);
+
+        var input_cantidad = document.getElementById("cantidad_" + numFila.toString()); // notice the change
+        input_cantidad.parentNode.removeChild(input_cantidad);
+
+        var input_total = document.getElementById("total_" + numFila.toString()); // notice the change
+        input_total.parentNode.removeChild(input_total);
+
+        numFila--;
+        console.log(numFila);
+    }
 }

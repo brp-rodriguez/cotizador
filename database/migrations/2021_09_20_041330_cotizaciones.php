@@ -14,8 +14,21 @@ class Cotizaciones extends Migration
     public function up()
     {
         Schema::create('cotizaciones', function (Blueprint $table) {
-            $table->id();            
+            $table->id();
+            $table->string('numero');
+            $table->string('serie_extension');
+            $table->string('forma_pago');
+            $table->string('observacion');
+            $table->string('validez_oferta');
+
+
+            $table->unsignedBigInteger('cliente_id')->nullable();
+            $table->foreign('cliente_id')
+                    ->references('id')->on('clientes')
+                    ->onDelete('set null');
+
             $table->timestamps();
+
         });
     }
 

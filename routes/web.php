@@ -3,6 +3,7 @@
 use App\Http\Controllers\CotizacionesController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SendInvoceController;
@@ -52,8 +53,26 @@ Route::delete('/productos/{producto}', [ProductoController::class ,'destroy'])->
 
 Route::get('/cotizaciones', [CotizacionesController::class ,'index'])->name('cotizaciones.index');
 Route::get('/cotizaciones/create', [CotizacionesController::class ,'create'])->name('cotizaciones.create');
+Route::post('/cotizaciones',[CotizacionesController::class,'store'])->name('cotizaciones.store');
+Route::get('/cotizaciones/{cotizacion}',[CotizacionesController::class,'show'])->name('cotizaciones.show');
+Route::get('/cotizaciones/{cotizacion}/edit',[CotizacionesController::class,'edit'])->name('cotizaciones.edit');
+Route::put('/cotizaciones/{cotizacion}',[CotizacionesController::class,'update'])->name('cotizaciones.update');
+Route::delete('/cotizaciones/{cotizacion}', [ProductoController::class ,'destroy'])->name('cotizaciones.destroy');
+
+
 
 Route::get('/ventas', [VentasController::class ,'index'])->name('ventas.index');
+
+
+Route::get('/clientes/searched', [ClientesController::class ,'search'])->name('clientes.search');
+Route::get('/clientes', [ClientesController::class ,'index'])->name('clientes.index');
+Route::get('/clientes/create', [ClientesController::class ,'create'])->name('clientes.create');
+Route::post('/clientes', [ClientesController::class ,'store'])->name('clientes.store');
+Route::get('/clientes/{cliente}', [ClientesController::class ,'show'])->name('clientes.show');
+Route::get('/clientes/{cliente}/edit', [ClientesController::class ,'edit'])->name('clientes.edit');
+Route::put('/clientes/{cliente}', [ClientesController::class ,'update'])->name('clientes.update');
+Route::delete('/clientes/{cliente}', [ClientesController::class ,'destroy'])->name('clientes.destroy');
+
 
 // PDF
 /*Route::get('/invoce/show', [SendInvoceController::class])->name('invoce.show');
