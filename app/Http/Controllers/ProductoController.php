@@ -28,9 +28,9 @@ class ProductoController extends Controller
         $producto->precio_venta_sin_igv =  $request->precio_venta_sin_igv;
         $producto->precio_venta_con_igv=  $request->precio_venta_sin_igv*1.18;
         
-        $producto->save();                
+        $producto->save();            
     
-        return redirect()->route('productos.show',$producto);       
+        return redirect()->route('productos.show',$producto);
    }
 
    public function show(Producto $producto){       

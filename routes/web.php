@@ -73,6 +73,7 @@ Route::get('/clientes/{cliente}/edit', [ClientesController::class ,'edit'])->nam
 Route::put('/clientes/{cliente}', [ClientesController::class ,'update'])->name('clientes.update');
 Route::delete('/clientes/{cliente}', [ClientesController::class ,'destroy'])->name('clientes.destroy');
 
+Route::get('/get_ruc', [ClientesController::class ,'get_ruc'])->name('get_ruc');
 
 // PDF
 /*Route::get('/invoce/show', [SendInvoceController::class])->name('invoce.show');

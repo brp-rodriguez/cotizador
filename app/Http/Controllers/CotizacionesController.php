@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cotizacion;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class CotizacionesController extends Controller
@@ -15,6 +16,7 @@ class CotizacionesController extends Controller
     public function index()
     {
         $cotizaciones = Cotizacion::all();
+        
         return view('cotizaciones.index',compact('cotizaciones'));
     }
 
@@ -24,8 +26,9 @@ class CotizacionesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('cotizaciones.create');
+    {   
+        $clientes = Cliente::all();
+        return view('cotizaciones.create',compact('clientes'));
     }
 
     /**

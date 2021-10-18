@@ -16,10 +16,18 @@
                                 Razón Social :
                               </label>
 
-                              <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                              <!--input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                    type="text" name="contacto" value="{{old('contacto')}}">
+                                    type="text" name="razon_social" value="{{old('razon_social')}}"-->
 
+                              <select id="razon_social" name="razon_social" class="appearance-none block w-full 
+                              bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                                            focus:ring-1 focus:ring-blue-600">
+                                <option value="-1" selected disabled>Seleccionar Cliente </option>
+                                @foreach ($clientes as $cliente)
+                                    <option value="{{ $cliente->id }}"> {{ $cliente->razon_social}}</option>
+                                @endforeach
+                              </select>
                               @error('contacto')
                                     <br> <small>*{{$message}}</small><br>
                               @enderror
@@ -34,7 +42,7 @@
                                   </label>
                                   <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                  id="ruc" type="text" name="ruc" value="{{old('ruc')}}">
+                                  id="ruc" type="text" name="ruc" value="{{old('ruc')}}" disabled>
 
                                   @error('ruc')
                                     <br> <small>*{{$message}}</small><br>
@@ -53,7 +61,7 @@
 
                               <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                    type="text" name="contacto" value="{{old('contacto')}}">
+                                    id="contacto" type="text" name="contacto" value="{{old('contacto')}}" disabled>
 
                               @error('contacto')
                                     <br> <small>*{{$message}}</small><br>
@@ -70,17 +78,15 @@
                                   </label>
                                   <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
-                                  id="celular" type="text" name="ruc" value="{{old('ruc')}}">
+                                  id="celular" type="text" name="celular" value="{{old('celular')}}" disabled>
 
-                                  @error('ruc')
+                                  @error('celular')
                                     <br> <small>*{{$message}}</small><br>
                                   @enderror
 
                             </div>
                         </div>
-                        <div>
-                            <a onclick="mostrar_Cantidad()"> numero fila</a>
-                        </div>
+                        
                         <div class="flex flex-wrap -mx-3 mb-0">
 
                             <div class="w-full md:w-3/10 px-3 mb-0 md:mb-0">
@@ -122,7 +128,7 @@
                                         Descripción :
                                     </label>
 
-                                    <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                                    <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                                     focus:ring-1 focus:ring-blue-600"
                                             type="text" name="descripcion_0" value="{{old('descripcion_0')}}">
 
@@ -139,7 +145,7 @@
                                           for="grid-first-name">
                                         Precio
                                   </label>
-                                  <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                                  <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
                                   id="precio_0" type="text" name="precio_0" value="{{old('precio_0')}}">
 
@@ -156,7 +162,7 @@
                                         for="grid-first-name">
                                       Cantidad
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600"
                                         id="cantidad_0" type="text" name="cantidad_0" value="{{old('cantidad_0')}}">
 
@@ -172,7 +178,7 @@
                                         for="grid-first-name">
                                       Total
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                                <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
                                             focus:ring-1 focus:ring-blue-600" disabled
                                 id="total_0" type="text" name="total_0" value="{{old('total_0')}}">
 
@@ -379,6 +385,99 @@
 <script src="{{ asset('js/AddRowsCotiCreate.js') }}"></script>
 <script src="{{ asset('js/CalcularMontos.js') }}"></script>
 <script src="{{ asset('js/ValidarMontos.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+        // Capturo razon social envento de cambio
+        $('#razon_social').change(function() {
+            // extraemos el valor             
+            var cliente_id =$(this).val();
+            console.log(cliente_id);
+            
+            if(cliente_id){
+                  console.log("entrando al ajax");
+                  $.ajax({
+                      type: "GET",
+                      url: "{{ url('get_ruc') }}?cliente_id=" + cliente_id,
+                      dataType:'json',
+                      success: function(res) {
+                          if (res) {                             
+                              $("#ruc").val(res['ruc']);
+                              $("#contacto").val(res['contacto_nombre']);
+                              $("#celular").val(res['contacto_celular']);
+                          } else {
+                              $("#ruc").val("");                                                                                       
+                          }
+                      }
+                  });
+              
+            }
+
+            /*
+            var countryID = $(this).val();
+
+            if (countryID) {
+
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('getState') }}?country_id=" + countryID,
+                    success: function(res) {
+
+                        if (res) {
+
+                            $("#state").empty();
+                            $("#state").append('<option>Select State</option>');
+                            $.each(res, function(key, value) {
+                                $("#state").append('<option value="' + key + '">' + value +
+                                    '</option>');
+                            });
+
+                        } else {
+
+                            $("#state").empty();
+                        }
+                    }
+                });
+            } else {
+
+                $("#state").empty();
+                $("#city").empty();
+            }*/
+        });
+
+        // when state dropdown changes
+        /*$('#state').on('change', function() {
+
+            var stateID = $(this).val();
+
+            if (stateID) {
+
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('getCity') }}?state_id=" + stateID,
+                    success: function(res) {
+
+                        if (res) {
+                            $("#city").empty();
+                            $("#city").append('<option>Select City</option>');
+                            $.each(res, function(key, value) {
+                                $("#city").append('<option value="' + key + '">' + value +
+                                    '</option>');
+                            });
+
+                        } else {
+
+                            $("#city").empty();
+                        }
+                    }
+                });
+            } else {
+
+                $("#city").empty();
+            }
+        });*/
+
+    </script>
 
 @include('productos.modal.create')
 @endsection
